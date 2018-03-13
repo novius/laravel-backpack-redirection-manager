@@ -23,11 +23,7 @@ class RedirectionManagerServiceProvider extends ServiceProvider
         $this->publishes([$appRootDir.'/config' => config_path('backpack')], 'config');
         $this->publishes([$appRootDir.'/routes' => base_path().'/routes/backpack'], 'routes');
         $this->publishes([$appRootDir.'/resources/lang' => resource_path('lang/vendor/backpack-redirection-manager')], 'lang');
-        $this->publishes([$appRootDir.'/resources/views' => resource_path('views/vendor/backpack-redirection-manager')], 'views');
         $this->publishes([$appRootDir.'/database/migrations' => database_path('migrations')], 'migrations');
-
-        // Loads the views
-        $this->loadViewsFrom($appRootDir.'/resources/views', 'backpack-redirection-manager');
 
         // Loads the translations
         $this->loadTranslationsFrom($appRootDir.'/resources/lang', 'backpack-redirection-manager');

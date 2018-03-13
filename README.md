@@ -46,9 +46,9 @@ You can publish the configuration file if you want to change these values :
 php artisan vendor:publish --provider="Novius\Backpack\RedirectionManager\RedirectionManagerServiceProvider" --tag=config
 ```
 
-You can also publish the views, lang and routes :
+You can also publish the migrations, lang and routes :
 ```
-php artisan vendor:publish --provider="Novius\Backpack\RedirectionManager\RedirectionManagerServiceProvider" --tag=views
+php artisan vendor:publish --provider="Novius\Backpack\RedirectionManager\RedirectionManagerServiceProvider" --tag=migrations
 php artisan vendor:publish --provider="Novius\Backpack\RedirectionManager\RedirectionManagerServiceProvider" --tag=lang
 php artisan vendor:publish --provider="Novius\Backpack\RedirectionManager\RedirectionManagerServiceProvider" --tag=routes
 ```
