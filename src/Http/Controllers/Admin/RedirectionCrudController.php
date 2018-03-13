@@ -13,7 +13,7 @@ class RedirectionCrudController extends CrudController
      */
     public function setup()
     {
-        $this->crud->setModel(config('missing-page-redirector.redirector'));
+        $this->crud->setModel(config('missing-page-redirector.redirector_model'));
         $this->crud->setRoute(route('crud.redirection.index'));
         $this->crud->setEntityNameStrings(
             trans('backpack-redirection-manager::crud.entity_singular'),
