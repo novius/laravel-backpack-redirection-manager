@@ -32,7 +32,7 @@ Finally you can add a link in the Backpack sidebar :
 <li>
     <a href="{{ route('crud.redirection.index') }}">
         <i class="fa fa-arrows-h"></i>
-        <span>{{ trans('redirection-manager::crud.sidebar_title') }}</span>
+        <span>{{ trans('backpack-redirection-manager::crud.sidebar_title') }}</span>
     </a>
 </li>
 ```
