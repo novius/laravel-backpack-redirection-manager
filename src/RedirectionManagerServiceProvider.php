@@ -3,6 +3,7 @@
 namespace Novius\Backpack\RedirectionManager;
 
 use Illuminate\Support\ServiceProvider;
+use Spatie\MissingPageRedirector\Redirector\Redirector;
 
 class RedirectionManagerServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,7 @@ class RedirectionManagerServiceProvider extends ServiceProvider
         $this->publishes([$appRootDir.'/routes' => base_path().'/routes/backpack'], 'routes');
         $this->publishes([$appRootDir.'/resources/lang' => resource_path('lang/vendor/backpack-redirection-manager')], 'lang');
         $this->publishes([$appRootDir.'/resources/views' => resource_path('views/vendor/backpack-redirection-manager')], 'views');
+        $this->publishes([$appRootDir.'/database/migrations' => database_path('migrations')], 'migrations');
 
         // Loads the views
         $this->loadViewsFrom($appRootDir.'/resources/views', 'backpack-redirection-manager');
@@ -30,17 +32,20 @@ class RedirectionManagerServiceProvider extends ServiceProvider
         // Loads the translations
         $this->loadTranslationsFrom($appRootDir.'/resources/lang', 'backpack-redirection-manager');
 
-        // Merges the current package config into the Backpack\Redirection-manager config
-        $this->mergeConfigTo($appRootDir.'/config/redirection-manager.php', 'laravel-missing-page-redirector');
+        // Loads the migrations
+        $this->loadMigrationsFrom($appRootDir.'/database/migrations');
 
-        // Merges the Backpack\Redirection-manager local config into the Backpack\Redirection-manager config
+        // Merges the config with the one from this package
+        $this->mergeConfigTo($appRootDir.'/config/redirection-manager.php', 'missing-page-redirector');
+
+        // Merges the config with the original one in the app
         if (file_exists(config_path('laravel-missing-page-redirector.php'))) {
-            $this->mergeConfigTo(config_path('laravel-missing-page-redirector.php'), 'laravel-missing-page-redirector');
+            $this->mergeConfigTo(config_path('laravel-missing-page-redirector.php'), 'missing-page-redirector');
         }
 
-        // Merges the current local package config into the Backpack\Redirection-manager config
+        // Merges the config with the one from this package in the app
         if (file_exists(config_path('backpack/redirection-manager.php'))) {
-            $this->mergeConfigTo(config_path('backpack/redirection-manager.php'), 'laravel-missing-page-redirector');
+            $this->mergeConfigTo(config_path('backpack/redirection-manager.php'), 'missing-page-redirector');
         }
     }
 
