@@ -22,6 +22,6 @@ class DatabaseRedirector implements Redirector
     {
         $model = config('missing-page-redirector.redirector_model');
 
-        return $model::select('to','from')->get()->pluck('to', 'from')->toArray();
+        return $model::select('to', 'from')->get()->pluck('to', 'from')->toArray();
     }
 }

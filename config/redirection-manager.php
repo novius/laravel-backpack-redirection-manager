@@ -2,7 +2,7 @@
 
 return [
 
-    /**
+    /*
      * This is the model used by the database redirector
      */
     'redirector_model' => \Novius\Backpack\RedirectionManager\Models\Redirection::class,
