@@ -1,0 +1,64 @@
+{
+    "name": "novius/laravel-backpack-redirection-manager",
+    "description": "This packages provides an interface to manage redirections via the Backpack admin panel",
+    "keywords": [
+        "Novius",
+        "Laravel",
+        "Backpack",
+        "Admin",
+        "RedirectionManager",
+        "Redirection",
+        "Manager"
+    ],
+    "type": "library",
+    "license": "AGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Novius Agency",
+            "email": "team-developpeurs@novius.com",
+            "homepage": "http://novius.com"
+        },
+        {
+            "name": "Pascal Viney",
+            "email": "viney@novius.fr"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "backpack/crud": "~3.3.0",
+        "spatie/laravel-missing-page-redirector" : "^2.2.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "~2.8.0",
+        "phpunit/phpunit": "~6",
+        "orchestra/testbench": "~3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Novius\\Backpack\\RedirectionManager\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Novius\\Backpack\\RedirectionManager\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "lint" : [
+            "php-cs-fixer fix --dry-run --config .php_cs -vv --diff --allow-risky=yes"
+        ],
+        "test" : [
+            "phpunit"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Novius\\Backpack\\RedirectionManager\\RedirectionManagerServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
