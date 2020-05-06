@@ -24,7 +24,7 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.3",
         "backpack/crud": "~3.4.0",
         "spatie/laravel-missing-page-redirector" : "~2.4.0"
     },
