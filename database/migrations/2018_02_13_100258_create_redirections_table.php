@@ -13,7 +13,7 @@ class CreateRedirectionsTable extends Migration
     public function up()
     {
         Schema::create('redirections', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->text('from');
             $table->text('to');
             $table->timestamps();

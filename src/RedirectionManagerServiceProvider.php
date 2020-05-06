@@ -3,7 +3,6 @@
 namespace Novius\Backpack\RedirectionManager;
 
 use Illuminate\Support\ServiceProvider;
-use Spatie\MissingPageRedirector\Redirector\Redirector;
 
 class RedirectionManagerServiceProvider extends ServiceProvider
 {
